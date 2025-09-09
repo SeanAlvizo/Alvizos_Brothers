@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// web.php
+Route::get('/home' , function () {
+    return view('home', ['name' => 'Your Name Here']); // Pass data to the home view
+ });
+
+
+Route::get('/(any?)', function () {
     return view('welcome');
-});
+})->where('any', '^(?!api).*$');
+
+
+//Route::get('/home', function () {
+//    return view('home');
+// });
